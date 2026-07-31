@@ -246,36 +246,6 @@ npm start
 
 ---
 
-## 🧪 How to Demo in an Interview
-
-### 1. Architecture Walkthrough
-- Explain the **two-tier architecture** (frontend/backend)
-- Discuss why **WebSocket** was chosen over polling for real-time updates
-- Explain the **OT Algorithm** and why it's needed for concurrent edits
-- Discuss **MySQL vs Redis** - why both were used
-- Talk about **JWT** for stateless authentication
-
-### 2. Live Demo (run locally)
-```bash
-# Start the application
-docker-compose up -d
-
-# Open two browser windows
-# 1. Register two different users
-# 2. User 1 creates a room
-# 3. User 2 joins the room via link
-# 4. Both users type simultaneously - show real-time sync
-```
-
-### 3. Key Talking Points
-- **Concurrency Control**: Explain how OT prevents edit conflicts
-- **Scalability**: How Redis helps with session management and caching
-- **Security**: JWT tokens, password hashing (BCrypt), CORS configuration
-- **Full-Stack**: Show understanding of both frontend and backend
-- **DevOps**: Docker setup, CI/CD pipeline understanding
-
----
-
 ## 🧠 Why This Project is Impressive
 
 ### For Java Roles:
