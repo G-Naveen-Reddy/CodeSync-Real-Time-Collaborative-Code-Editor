@@ -1,0 +1,56 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: code-sync-backend
+
+  # Default: H2 embedded in-memory database - ZERO configuration needed
+  # No MySQL or Redis installation required for development
+  datasource:
+    url: jdbc:h2:mem:codesync;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+
+  # Redis is optional - app works without it (caching only)
+  redis:
+    host: localhost
+    port: 6379
+    timeout: 2000ms
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    date-format: yyyy-MM-dd HH:mm:ss
+
+jwt:
+  secret: CodeSyncSecretKeyForJWT2024MustBeAtLeast256BitsLongForHS256Algorithm
+  expiration: 86400000
+
+websocket:
+  allowed-origins: http://localhost:3000
+
+logging:
+  level:
+    com.codesync: DEBUG
+    org.springframework.web.socket: DEBUG
